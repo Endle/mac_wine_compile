@@ -30,7 +30,7 @@ jobs:
       - name: Fetch wine code
         run: git clone --depth=1 https://github.com/wine-mirror/wine.git
       - name: Build wine
-        run: cd wine && ../compile_wine.sh
+        run: ./compile_wine.sh
 
 
 
