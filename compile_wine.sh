@@ -3,6 +3,11 @@
 # TODO: Remove this hardcoced config
 export WINE_SRC=$(pwd)/wine
 export WINE_BUILD=$(pwd)/build
+mkdir -p $WINE_BUILD
+
+
+export PATH="$(brew --prefix bison)/bin:$PATH"
+
 
 # Provided by Gcenx - https://github.com/Gcenx/homebrew-wine/issues/14#issuecomment-787525002
 # Make dlopen() function like wine_dlopen()
