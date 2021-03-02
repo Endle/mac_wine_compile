@@ -17,7 +17,7 @@ on:
 jobs:
   build:
     # The type of runner that the job will run on
-    runs-on:  macos-latest
+    runs-on:  macos-10.15
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -25,7 +25,12 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: MacPorts
-        uses: keepitsimpletech/actions/setup-macports@setup-macports/releases/v1
+        run: |
+          cd /tmp
+          wget https://github.com/macports/macports-base/releases/download/v2.6.4/MacPorts-2.6.4-10.15-Catalina.pkg
+          /usr/sbin/installer -pkg MacPorts-2.6.4-10.15-Catalina.pkg -target /
+          port version
+          
       - name: Set up dependencies
         run : ./set_up_build_dependency.sh
       - name: Fetch wine code
