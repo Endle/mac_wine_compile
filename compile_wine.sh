@@ -20,67 +20,11 @@ export LIBRARY_PATH="/opt/local/lib"
 export FRAMEWORK_SEARCH_PATHS="/opt/local/Library/Frameworks"
 
 cd $WINE_BUILD
-$WINE_SRC/configure         --prefix="" \
-                            --without-alsa \
-                            --without-capi \
-                            --with-cms \
-                            --with-coreaudio \
-                            --with-cups \
-                            --without-dbus \
-                            --with-faudio \
-                            --without-fontconfig \
-                            --with-freetype \
-                            --with-gettext \
-                            --without-gettextpo \
-                            --without-gphoto \
-                            --with-gnutls \
-                            --without-gsm \
-                            --without-gssapi \
-                            --with-gstreamer \
-                            --without-hal \
-                            --without-inotify \
-                            --with-jpeg \
-                            --with-jxrlib \
-                            --without-krb5 \
-                            --with-ldap \
-                            --with-mingw \
-                            --with-mpg123 \
-                            --without-netapi \
-                            --with-openal \
-                            --with-opencl \
-                            --with-opengl \
-                            --with-osmesa \
-                            --without-oss \
-                            --with-pcap \
-                            --with-png \
-                            --with-pthread \
-                            --without-pulse \
-                            --without-quicktime \
-                            --without-sane \
-                            --with-sdl \
-                            --with-tiff \
-                            --without-udev \
-                            --with-unwind \
-                            --with-usb \
-                            --without-v4l2 \
-                            --without-vulkan \
-                            --without-vkd3d \
-                            --with-xcomposite \
-                            --with-xcursor \
-                            --with-xfixes \
-                            --with-xinerama \
-                            --with-xinput \
-                            --with-xinput2 \
-                            --with-xml \
-                            --with-xrandr \
-                            --with-xrender \
-                            --with-xshape \
-                            --without-xshm \
-                            --with-xslt \
-                            --with-xxf86vm \
-                            --with-x \
-                            --x-include=/opt/X11/include \
-                            --x-lib=/opt/X11/lib
+$WINE_SRC/configure         --enable-win64 \
+                            --with-vkd3d \
+                            --with-vulkan \
+                            ac_cv_lib_soname_MoltenVK=libMoltenVK.dylib \
+                            ac_cv_lib_soname_vulkan=
 
 make -j$(sysctl -n hw.ncpu 2>/dev/null)
 make install-lib DESTDIR="$PREFIXFOLDER"
