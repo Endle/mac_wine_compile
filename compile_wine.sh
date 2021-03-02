@@ -18,7 +18,7 @@ export LIBRARY_PATH="/opt/local/lib"
 # Set Frameworks
 export FRAMEWORK_SEARCH_PATHS="/opt/local/Library/Frameworks"
 
-cd $(WINE_SRC)
+cd $WINE_SRC
 configure                   --prefix="" \
                             --without-alsa \
                             --without-capi \
