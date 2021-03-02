@@ -2,6 +2,7 @@
 
 # TODO: Remove this hardcoced config
 export WINE_SRC=$(pwd)/wine
+export WINE_BUILD=$(pwd)/build
 
 # Provided by Gcenx - https://github.com/Gcenx/homebrew-wine/issues/14#issuecomment-787525002
 # Make dlopen() function like wine_dlopen()
@@ -18,8 +19,8 @@ export LIBRARY_PATH="/opt/local/lib"
 # Set Frameworks
 export FRAMEWORK_SEARCH_PATHS="/opt/local/Library/Frameworks"
 
-cd $WINE_SRC
-configure                   --prefix="" \
+cd $WINE_BUILD
+$WINE_SRC/configure         --prefix="" \
                             --without-alsa \
                             --without-capi \
                             --with-cms \
