@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 
-echo STUB
-
+brew cask install xquartz
+brew install bison flex mingw-w64 pkgconfig
