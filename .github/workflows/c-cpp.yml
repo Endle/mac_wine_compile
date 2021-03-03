@@ -29,12 +29,13 @@ jobs:
           cd /tmp
           wget https://github.com/macports/macports-base/releases/download/v2.6.4/MacPorts-2.6.4-10.15-Catalina.pkg
           sudo /usr/sbin/installer -pkg MacPorts-2.6.4-10.15-Catalina.pkg -target /
-          ls /opt/local/bin
           export PATH=$PATH:/opt/local/bin
           port version
           
       - name: Set up dependencies
-        run : ./set_up_build_dependency.sh
+        run : |
+          export PATH=$PATH:/opt/local/bin
+          ./set_up_build_dependency.sh
       - name: Fetch wine code
         run: git clone --depth=1 https://github.com/wine-mirror/wine.git
       - name: Build wine
